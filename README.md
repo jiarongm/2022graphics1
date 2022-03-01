@@ -1,5 +1,72 @@
 # 2022graphics1
-##
+## week02
+Week02_點、線、面、色彩
+
+1.下載範例https://jsyeh.org/3dcg10/
+
+
+windows.zip=7.zip=解壓縮至windows/
+
+data.zip =解壓縮後把資料夾放進windows裡
+glut32.dll=複製=貼到windows資料夾裡
+
+
+開啟Shapes.exe看範例
+
+
+
+在左邊點擊滑鼠右鍵:大頂點、更改顏色
+在右邊點擊滑鼠右鍵:point(點)....polygon(面)
+
+2.跑上周的程式
+下載git fot windows >git bash>cd desktop>git clone 你的github網址
+下載freeglut>解壓縮至桌面開啟freeglut資料夾>bin>複製 libfreeglut.a 原地貼上後再改名為 libglut32.a
+開啟codeblocks>OPEN>桌面>week01_GLUT>跑
+
+3.開始寫GLUT程式
+codeblocks>New file>project>GLUT>go > next > projet title:命名專案名稱為week02_color  > 位置設為桌面>next  > close > 是 > 點擊「...」 >  選取剛才的freeglut資料夾
+>>>>>程式碼全部刪掉，自己寫:
+```
+#include <GL/glut.h>///使用GLUT的外掛
+void display(){
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);///畫之前先清除畫面
+
+    glColor3f(1,1,0);///設定顏色
+    glutSolidTeapot(0.3);///畫茶壺
+
+    glutSwapBuffers();///畫好後呈現出來
+}
+int main(int argc,char** argv){
+    glutInit(&argc,argv);///把參數送給glutInit初始化
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH);///雙緩衝區+3D深度功能
+    glutCreateWindow("第02周的程式喔!");///開啟GLUT視窗
+
+    glutDisplayFunc(display);///用來顯示的程式
+    glutMainLoop();///主要的程式迴圈
+}
+```
+
+4.模仿範例
+```
+//glutSolidTeapot(0.3);///畫茶壺
+    glBegin(GL_POLYGON);     //開始 polygon(多邊形)
+        glColor3f(1,0,0);    // 一組
+        glVertex2f(-1,-1);     //vertetx(頂點)   2f(兩個浮點數)
+
+        glColor3f(0,1,0);
+        glVertex2f(+1,-1);
+
+        glColor3f(0,0,1);
+        glVertex2f(0,+1);
+
+    glEnd();    //結束(停止在這裡)
+```
+
+
+
+
+
+## week01
 1.用Codeblocks 17.12 做一個OpenGL的專案
 
     codeblocks > file > new > Project >
